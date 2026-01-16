@@ -1,0 +1,10 @@
+{
+  "records": [
+    { "stationId": "100", "stationName": "서울역", "hour": 8, "congestion": 78 },
+    { "stationId": "101", "stationName": "시청", "hour": 8, "congestion": 52 },
+    { "stationId": "102", "stationName": "종각", "hour": 8, "congestion": 34 },
+    { "stationId": "100", "stationName": "서울역", "hour": 18, "congestion": 62 },
+    { "stationId": "101", "stationName": "시청", "hour": 18, "congestion": 81 },
+    { "stationId": "102", "stationName": "종각", "hour": 18, "congestion": 45 }
+  ]
+}
