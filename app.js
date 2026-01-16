@@ -1,4 +1,4 @@
-const DATA_URL = "data/seoul-subway-hourly-data.json";
+const DATA_URL = "public/seoul-subway-hourly-data.json";
 const SVG_URL = "assets/subway.svg";
 
 const DEFAULT_FILL = "#E2E8F0";
@@ -15,6 +15,67 @@ const summary = document.getElementById("summary");
 
 let congestionData = [];
 let svgRoot = null;
+
+function toNumber(value) {
+  if (typeof value === "number") return value;
+  if (typeof value === "string") {
+    const normalized = value.replace(/,/g, "").trim();
+    const parsed = Number(normalized);
+    return Number.isNaN(parsed) ? 0 : parsed;
+  }
+  return 0;
+}
+
+function pickValue(item, keys) {
+  return keys.find((key) => item[key] !== undefined);
+}
+
+function normalizeRecords(raw) {
+  const records = Array.isArray(raw) ? raw : raw?.records ?? raw?.data ?? [];
+  if (!Array.isArray(records)) return [];
+
+  return records
+    .map((item) => {
+      const stationIdKey = pickValue(item, [
+        "stationId",
+        "station_id",
+        "STATION_ID",
+      ]);
+      const stationNameKey = pickValue(item, [
+        "stationName",
+        "station",
+        "station_nm",
+        "STATION_NM",
+        "역명",
+      ]);
+      const hourKey = pickValue(item, ["hour", "hh", "time", "시간", "HH"]);
+      const rideKey = pickValue(item, [
+        "ride",
+        "boarding",
+        "in",
+        "승차",
+        "승차인원",
+        "승차수",
+      ]);
+      const alightKey = pickValue(item, [
+        "alight",
+        "alighting",
+        "out",
+        "하차",
+        "하차인원",
+        "하차수",
+      ]);
+
+      return {
+        stationId: stationIdKey ? String(item[stationIdKey]) : "",
+        stationName: stationNameKey ? String(item[stationNameKey]) : "",
+        hour: toNumber(item[hourKey ?? "hour"]),
+        ride: toNumber(item[rideKey ?? "ride"]),
+        alight: toNumber(item[alightKey ?? "alight"]),
+      };
+    })
+    .filter((item) => Number.isFinite(item.hour));
+}
 
 function buildHourOptions() {
   for (let hour = 0; hour < 24; hour += 1) {
@@ -130,7 +191,7 @@ async function loadSvg() {
 async function loadData() {
   const response = await fetch(DATA_URL);
   const json = await response.json();
-  congestionData = json.records;
+  congestionData = normalizeRecords(json);
 }
 
 async function init() {

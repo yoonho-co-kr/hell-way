@@ -12,7 +12,8 @@ python -m http.server 8000
 
 ## 데이터 연동
 
-- `data/seoul-subway-hourly-data.json`의 `records` 배열을 읽어 혼잡도를 표시합니다.
+- `public/seoul-subway-hourly-data.json`의 `records` 배열을 읽어 혼잡도를 표시합니다.
 - `assets/subway.svg` 내 역 원형의 `data-name` 또는 `id`가 JSON의 `stationName`/`stationId`와 매칭되어야 합니다.
 - 각 역은 왼쪽 원(승차), 오른쪽 원(하차)로 색상이 적용됩니다.
 - 데이터는 `ride`(승차)와 `alight`(하차) 혼잡도 필드를 포함해야 하며 전체 역이 포함되어야 합니다.
+- JSON 필드명이 다른 경우에도 `station_id`, `station_nm`, `승차`, `하차` 등의 키를 자동으로 매핑합니다.
