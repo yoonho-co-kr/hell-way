@@ -1,9 +1,18 @@
 <svg width="760" height="420" viewBox="0 0 760 420" fill="none" xmlns="http://www.w3.org/2000/svg">
   <rect width="760" height="420" rx="24" fill="#F8FAFC" />
   <path d="M120 210H640" stroke="#CBD5F5" stroke-width="10" stroke-linecap="round" />
-  <circle cx="140" cy="210" r="24" fill="#E2E8F0" data-station-id="100" />
-  <circle cx="380" cy="210" r="24" fill="#E2E8F0" data-station-id="101" />
-  <circle cx="620" cy="210" r="24" fill="#E2E8F0" data-station-id="102" />
+  <g id="100" data-name="서울역">
+    <circle cx="128" cy="210" r="20" fill="#E2E8F0" data-side="left" />
+    <circle cx="152" cy="210" r="20" fill="#E2E8F0" data-side="right" />
+  </g>
+  <g id="101" data-name="시청">
+    <circle cx="368" cy="210" r="20" fill="#E2E8F0" data-side="left" />
+    <circle cx="392" cy="210" r="20" fill="#E2E8F0" data-side="right" />
+  </g>
+  <g id="102" data-name="종각">
+    <circle cx="608" cy="210" r="20" fill="#E2E8F0" data-side="left" />
+    <circle cx="632" cy="210" r="20" fill="#E2E8F0" data-side="right" />
+  </g>
   <text x="140" y="260" text-anchor="middle" font-size="14" fill="#475569">서울역</text>
   <text x="380" y="260" text-anchor="middle" font-size="14" fill="#475569">시청</text>
   <text x="620" y="260" text-anchor="middle" font-size="14" fill="#475569">종각</text>
