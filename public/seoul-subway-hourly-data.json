@@ -1,0 +1,10 @@
+{
+  "records": [
+    { "stationId": "100", "stationName": "서울역", "hour": 8, "ride": 78, "alight": 64 },
+    { "stationId": "101", "stationName": "시청", "hour": 8, "ride": 52, "alight": 47 },
+    { "stationId": "102", "stationName": "종각", "hour": 8, "ride": 34, "alight": 28 },
+    { "stationId": "100", "stationName": "서울역", "hour": 18, "ride": 62, "alight": 81 },
+    { "stationId": "101", "stationName": "시청", "hour": 18, "ride": 81, "alight": 58 },
+    { "stationId": "102", "stationName": "종각", "hour": 18, "ride": 45, "alight": 39 }
+  ]
+}
