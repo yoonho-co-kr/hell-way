@@ -1,5 +1,5 @@
 const DATA_URL = "data/seoul-subway-hourly-data.json";
-const SVG_URL = "assets/seoul_metro_map_with_ids.svg";
+const SVG_URL = "assets/subway.svg";
 
 const levelColor = {
   low: "var(--low)",

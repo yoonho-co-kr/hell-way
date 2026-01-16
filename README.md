@@ -13,5 +13,5 @@ python -m http.server 8000
 ## 데이터 연동
 
 - `data/seoul-subway-hourly-data.json`의 `records` 배열을 읽어 혼잡도를 표시합니다.
-- `assets/seoul_metro_map_with_ids.svg` 내에 `data-station-id` 속성이 있어야 합니다.
+- `assets/subway.svg` 내에 `data-station-id` 속성이 있어야 합니다.
 - `stationId`가 매칭되는 원형 노드에 혼잡도 색상이 적용됩니다.
